@@ -1,0 +1,25 @@
+{
+  "name": "d.js-aki",
+  "version": "3.2.1",
+  "description": "Just a fun module to interact with aki-api more easily on Discord. Modified by Holly (me) to look more comfortable.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheFateAkira/d.js-aki"
+  },
+  "keywords": [
+    "akinator",
+    "discord.js",
+    "aki-api"
+  ],
+  "author": "WillTDA & Holly",
+  "license": "MIT",
+  "dependencies": {
+    "@vitalets/google-translate-api": "^7.0.0",
+    "aki-api": "^6.0.8",
+    "discord.js": "^13.1.0"
+  }
+}
