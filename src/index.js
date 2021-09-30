@@ -121,7 +121,7 @@ module.exports = async function (input, options = {}) {
             let alreadyPlayingEmbed = new Discord.MessageEmbed()
                 .setAuthor(usertag, avatar)
                 .setTitle(`❌ ${await translate("You're already playing!", options.language)}`)
-                .setDescription(`**${await translate(`You're already playing a game of Akinator. ${!options.useButtons ? `Type \`s\` or \`stop\`` : `Press the \`Stop\` button on the previous game's message`} to cancel your game.`, options.language)}**`)
+                .setDescription(`${await translate(`You're already playing a game of Akinator. ${!options.useButtons ? `Type \`s\` or \`stop\`` : `Press the \`Stop\` button on the previous game's message`} to cancel your game.`, options.language)}`)
                 .setColor("RED")
 
             if (input.commandName && (!input.replied || !input.deferred)) { // check if it's a slash command and see if it's already been replied or deferred
@@ -207,10 +207,10 @@ module.exports = async function (input, options = {}) {
 
                 let guessEmbed = new Discord.MessageEmbed()
                     .setAuthor(usertag, avatar)
-                    .setTitle(`${await translate(`I'm ${Math.round(aki.progress)}% sure your character is...`, options.language)}`)
-                    .setDescription(`**${await translate(aki.answers[0].name, options.language)}**\n${await translate(aki.answers[0].description, options.language)}\n\n${translations.isThisYourCharacter} ${!options.useButtons ? `**(Type Y/${translations.yes} or N/${translations.no})**` : ""}`)
-                    .addField(translations.ranking, `**#${aki.answers[0].ranking}**`, true)
-                    .addField(translations.noOfQuestions, `**${aki.currentStep}**`, true)
+                    .setTitle(`${await translate(`I'm **${Math.round(aki.progress)}%** sure your character is...`, options.language)}`)
+                    .setDescription(`${await translate(aki.answers[0].name, options.language)}\n${await translate(aki.answers[0].description, options.language)}\n\n${translations.isThisYourCharacter} ${!options.useButtons ? `(Type **Y/${translations.yes}** or **N/${translations.no}**)` : ""}`)
+                    .addField(translations.ranking, `#${aki.answers[0].ranking}`, true)
+                    .addField(translations.noOfQuestions, `${aki.currentStep}`, true)
                     .setImage(aki.answers[0].absolute_picture_path)
                     .setColor("RANDOM")
                 await akiMessage.edit({ embeds: [guessEmbed] });
@@ -312,7 +312,7 @@ module.exports = async function (input, options = {}) {
                     let thinkingEmbed = new Discord.MessageEmbed()
                         .setAuthor(usertag, avatar)
                         .setTitle(`${translations.question} ${aki.currentStep + 1}`)
-                        .setDescription(`${translations.progress}: **${Math.round(aki.progress)}%\n${await translate(aki.question, options.language)}**`)
+                        .setDescription(`${translations.progress}: **${Math.round(aki.progress)}**%\n${await translate(aki.question, options.language)}`)
                         .setFooter(translations.thinking)
                         .setColor("RANDOM")
                     if (!options.useButtons) thinkingEmbed.addField(translations.pleaseType, `**Y** or **${translations.yes}**\n**N** or **${translations.no}**\n**I** or **IDK**\n**P** or **${translations.probably}**\n**PN** or **${translations.probablyNot}**\n**B** or **${translations.back}**`)
@@ -354,3 +354,4 @@ module.exports = async function (input, options = {}) {
         console.log(e);
     }
 }
+
