@@ -1,6 +1,6 @@
 {
   "name": "d.js-aki",
-  "version": "3.2.1",
+  "version": "3.5.1",
   "description": "Just a fun module to interact with aki-api more easily on Discord. Modified by Holly (me) to look more comfortable.",
   "main": "src/index.js",
   "scripts": {
